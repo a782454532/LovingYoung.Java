@@ -1,2 +1,0 @@
-# LovingYoung.Java
-LovingYoung
