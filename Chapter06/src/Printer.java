@@ -6,8 +6,7 @@ interface Product
 //让Printer类实现Output和Product接口
 public class Printer implements Output , Product
 {
-	private String[] printData 
-		= new String[MAX_CACHE_LINE];
+	private String[] printData = new String[MAX_CACHE_LINE];
 	//用以记录当前需打印的作业数
 	private int dataNum = 0;
 	public void out()
