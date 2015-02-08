@@ -1,5 +1,6 @@
 package lovingyoung;
 
+import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,7 +24,7 @@ public class HttpRequest {
 		String result = "";
 		BufferedReader in = null;
 		try {
-			String urlNameString = url + "?" + param+"&output=json&ak=Qa6GSM4MySGSARXMLpSwqUQt";
+			String urlNameString = url + "?" + param+"&output=xml&ak=Qa6GSM4MySGSARXMLpSwqUQt";
 			URL realUrl = new URL(urlNameString);
 			// 打开和URL之间的连接
 			URLConnection connection = realUrl.openConnection();
@@ -37,9 +38,9 @@ public class HttpRequest {
 			// 获取所有响应头字段
 			Map<String, List<String>> map = connection.getHeaderFields();
 			// 遍历所有的响应头字段
-			for (String key : map.keySet()) {
-				System.out.println(key + "--->" + map.get(key));
-			}
+		//	for (String key : map.keySet()) {
+				//System.out.println(key + "--->" + map.get(key));
+		//	}
 			// 定义 BufferedReader输入流来读取URL的响应
 			in = new BufferedReader(new InputStreamReader(
 						connection.getInputStream()));
@@ -124,7 +125,17 @@ public class HttpRequest {
 	}    
 	public static void main(String[] args) {
 		//发送 GET 请求
-		String s=HttpRequest.sendGet("http://api.map.baidu.com/place/v2/search", "q=饭店&region=北京");
-		System.out.println(s);
+//		String s=HttpRequest.sendGet("http://api.map.baidu.com/place/v2/search", "q=饭店&region=北京");
+//		System.out.println(s);
+		String web="http://api.map.baidu.com/place/v2/search";
+		String param="";
+		Scanner sc=new Scanner(System.in);
+		System.out.print("请输入搜索内容:");
+		param=param+"q="+sc.next();
+		System.out.print("请输入搜索地点:");
+		param=param+"&region="+sc.next();
+		System.out.println(param);
+		String s=HttpRequest.sendGet(web,param);
+		System.out.print(s);
 	}
 }
