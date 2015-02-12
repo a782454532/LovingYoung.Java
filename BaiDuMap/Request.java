@@ -1,6 +1,5 @@
 package lovingyoung;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -37,7 +36,7 @@ public class Request{
 			while(in.hasNextLine()){
 				line=in.nextLine();
 				System.out.println(line);
-				result+=line;
+				result+="\n"+line;
 			}
 		} catch(Exception e){
 			System.out.println("发送GET请求异常!"+e);
@@ -53,20 +52,5 @@ public class Request{
 			}
 		}
 		return result;
-	}
-
-	public static void main(String[] args) {
-		//发送 GET 请求
-		//		String s=HttpRequest.sendGet("http://api.map.baidu.com/place/v2/search", "q=饭店&region=北京");
-		//		System.out.println(s);
-		String web="http://api.map.baidu.com/place/v2/search";
-		String param="";
-		Scanner sc=new Scanner(System.in);
-		System.out.print("请输入搜索内容:");
-		param=param+"q="+sc.next();
-		System.out.print("请输入搜索地点:");
-		param=param+"&region="+sc.next();
-		System.out.println(param);
-		String s=Request.sendGet(web,param);
 	}
 }

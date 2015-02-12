@@ -24,7 +24,7 @@ public class HttpRequest {
 		String result = "";
 		BufferedReader in = null;
 		try {
-			String urlNameString = url + "?" + param+"&output=xml&ak=Qa6GSM4MySGSARXMLpSwqUQt";
+			String urlNameString = url + "?" + param+"&output=json&ak=Qa6GSM4MySGSARXMLpSwqUQt";
 			URL realUrl = new URL(urlNameString);
 			// 打开和URL之间的连接
 			URLConnection connection = realUrl.openConnection();
